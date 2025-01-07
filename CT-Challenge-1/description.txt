@@ -1,0 +1,13 @@
+Contact Tracing - Apex challenge
+
+Create Apex controller classes for all 4 objects. Name these classes as
+- CTPersonController
+- CTLocationController
+- CTPeopleTracingController
+- CTLocationTracingController
+
+create method "getToken()" in CTPersonController class. this method should
+- accept string parameter (Mobile No)
+- generate a secure token using MD5hasing
+- return the secure token back to caller
+
