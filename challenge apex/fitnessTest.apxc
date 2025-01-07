@@ -1,0 +1,53 @@
+@isTest
+public class FitnessTest {
+    @testSetup
+    static void setup() {
+        // No setup needed for this test class
+    }
+
+    @isTest
+    static void testCalculateBMI() {
+        Fitness fitness = new Fitness();
+        Decimal weight = 70.0;
+        Decimal height = 1.75;
+        Decimal expectedBMI = 22.86;
+        Decimal actualBMI = fitness.calculateBMI(weight, height);
+        System.assertEquals(expectedBMI, actualBMI, 0.01);
+    }
+
+    @isTest
+    static void testCalculatePace() {
+        Fitness fitness = new Fitness();
+        Decimal distance = 10.0;
+        Decimal minutes = 60.0;
+        Decimal expectedPace = 10.0;
+        Decimal actualPace = fitness.calculatePace(distance, minutes);
+        System.assertEquals(expectedPace, actualPace, 0.01);
+    }
+
+    @isTest
+    static void testCalculateBMI_InvalidInput() {
+        Fitness fitness = new Fitness();
+        Decimal weight = 0.0;
+        Decimal height = 0.0;
+        try {
+            fitness.calculateBMI(weight, height);
+            System.assert(false, 'Expected DivideByZeroException');
+        } catch (DivideByZeroException e) {
+            System.assert(true);
+        }
+    }
+
+    @isTest
+    static void testCalculatePace_InvalidInput() {
+        Fitness fitness = new Fitness();
+        Decimal distance = 0.0;
+        Decimal minutes = 0.0;
+        try {
+            fitness.calculatePace(distance, minutes);
+            System.assert(false, 'Expected DivideByZeroException');
+        } catch (DivideByZeroException e) {
+            System.assert(true);
+        }
+    }
+}
